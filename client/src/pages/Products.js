@@ -274,9 +274,15 @@ export default function EcommerceShop() {
                   {course['Course Name']}
                 </Typography>
               </Link>
+              <div style={{marginBottom: '8px'}}>
+                <Rating name="read-only" value={parseFloat(course['Course Rating'])} readOnly size="small" style={{margin: '5px'}} />
+                <Chip label={course['Difficulty Level']} color="primary" variant="outlined" size="small" style={{margin: '5px'}} />
+                <Chip label={course['University'].replaceAll('�', "'")} color="success" variant="outlined" size="small" style={{margin: '5px'}} />
+              </div>
               <DescriptionStyle variant="body2" color="text.secondary">
                 {course['Course Description'].replaceAll('�', "'")}
               </DescriptionStyle>
+           
             </CardContent>
             <CardActions>
               <IconButton aria-label="add to favorites">
@@ -286,9 +292,7 @@ export default function EcommerceShop() {
                 <ShareIcon />
               </IconButton>
               <div style={{ flex: 1 }}></div>
-              <Rating name="read-only" value={parseFloat(course['Course Rating'])} readOnly size="small" />
-              <Chip label={course['Difficulty Level']} color="primary" variant="outlined" size="small" />
-              <Chip label={course['University'].replaceAll('�', "'")} color="success" variant="outlined" size="small" />
+            
               <ExpandMore
                 expand={expanded}
                 onClick={handleExpandClick}
