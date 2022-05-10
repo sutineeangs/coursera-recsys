@@ -3,7 +3,7 @@
 - Install libs with script `./libs.sh`
 - Redirect to `cd server`
 - Start the server: `./server.py`
-- Can API on browser `http://localhost:5000/api/getCourses`
+- Test API on browser `http://localhost:5000/api/getCourses`
 
 ## Run client
 
