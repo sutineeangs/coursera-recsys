@@ -1,16 +1,16 @@
 ## Run server
 
-- Install libs `./libs.sh`
+- Install libs with script `./libs.sh`
 - Redirect to `cd server`
-- Run command `./server.py`
-
+- Start the server: `./server.py`
+- Can API on browser `http://localhost:5000/api/getCourses`
 
 ## Run client
 
 - Recommended `node js 14+` and `npm 6+`
 - Redirect to `cd client`
 - Install dependencies: `npm install` or `yarn install`
-- Start the server: `npm run start` or `yarn start`
+- Start the client: `npm run start` or `yarn start`
 - Open browser and go to `http://localhost:3000/login`
 
 ## License
