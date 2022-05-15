@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[27]:
+# In[1]:
 
 
 import os
@@ -22,14 +22,14 @@ print('Dependencies Imported')
 # print(test.test())
 
 
-# In[14]:
+# In[2]:
 
 
-# Coursera Course Recommendation System+WebApp
+# Coursera Course Recommendation System+WebApp (CountVectorization)
 # https://www.kaggle.com/code/sagarbapodara/coursera-course-recommendation-system-webapp
 
 
-# In[15]:
+# In[3]:
 
 
 def getCourses():
@@ -39,7 +39,7 @@ def getCourses():
     return data
 
 
-# In[31]:
+# In[4]:
 
 
 def getJsonData(df):
@@ -49,7 +49,7 @@ def getJsonData(df):
 #     return json.dumps(parsed, indent=4)  
 
 
-# In[17]:
+# In[5]:
 
 
 #defining the stemming function
@@ -65,7 +65,7 @@ def getJsonData(df):
 #     return " ".join(y)
 
 
-# In[18]:
+# In[16]:
 
 
 # Recommendation Function
@@ -128,18 +128,25 @@ def recommend1(course):
     course_names = []
     for i in course_list:
         course_names.append(new_df.iloc[i[0]].course_name)
+        #print(new_df.iloc[i[0]].course_name)
     #print(course_names)
-    return courses.set_index('course_name_index').loc[course_names].reset_index()
+    return courses.set_index('course_name_index').loc[course_names].reset_index().drop_duplicates(subset=['course_name_index'])
 
 
-# In[19]:
+# In[18]:
 
 
-# Coursera Course Recommendation Engine 
+# recommend1('Write A Feature Length Screenplay For Film Or Television')
+
+
+# In[7]:
+
+
+# Coursera Course Recommendation Engine (TfidfVectorizer)
 # https://www.kaggle.com/code/brijlaldhankour/coursera-course-recommendation-engine
 
 
-# In[20]:
+# In[8]:
 
 
 # Creating autocpt arguments 
@@ -148,7 +155,7 @@ def func(pct, allvalues):
     return "{:.1f}%\n({:d} g)".format(pct, absolute) 
 
 
-# In[21]:
+# In[9]:
 
 
 def plotGraph1():
@@ -202,7 +209,7 @@ def plotGraph1():
     #=========================================================================#
 
 
-# In[22]:
+# In[10]:
 
 
 def plotGraph2():
@@ -230,7 +237,7 @@ def plotGraph2():
     #=========================================================================#
 
 
-# In[23]:
+# In[24]:
 
 
 # Recommendation Function
@@ -277,10 +284,10 @@ def recommend2(course_title):
     sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
     sim_scores = sim_scores[1:11]
     course_indices = [i[0] for i in sim_scores]
-    return courses.loc[titles.iloc[course_indices].index]
+    return courses.loc[titles.iloc[course_indices].index].drop_duplicates(subset=['Course Name'])
 
 
-# In[33]:
+# In[27]:
 
 
 # Test functions

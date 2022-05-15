@@ -312,6 +312,7 @@ export default function EcommerceShop() {
                   <b>Skills</b><br />
                   {course['Skills'].replaceAll('�', "'")}
                 </Typography>
+                <Button variant="contained">Register</Button>
               </CardContent>
             </Collapse>
           </Card> : null
