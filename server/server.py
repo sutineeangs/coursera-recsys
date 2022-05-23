@@ -6,7 +6,8 @@
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import recsys_v1
+# import recsys_v1
+import recsys_v2
 
 
 # In[57]:
@@ -49,8 +50,8 @@ def get_api():
 
 @app.route('/api/getCourses', methods=['GET'])
 def get_api_courses():
-    res = recsys_v1.getCourses()
-    res = recsys_v1.getJsonData(res)
+    res = recsys_v2.getCourses()
+    res = recsys_v2.getJsonData(res)
     return jsonify(res)
 
 @app.route('/api/recommend1', methods=['GET'])
@@ -61,8 +62,8 @@ def get_api_recommend1():
             return jsonify(empty)
         if search == '':
             return jsonify(empty)
-        res = recsys_v1.recommend1(search)
-        res = recsys_v1.getJsonData(res)
+        res = recsys_v2.recommend1(search)
+        res = recsys_v2.getJsonData(res)
         return jsonify(res)
     except:    
         return jsonify(empty)
@@ -75,8 +76,8 @@ def get_api_recommend2():
             return jsonify(empty)
         if search == '':
             return jsonify(empty)
-        res = recsys_v1.recommend2(search)
-        res = recsys_v1.getJsonData(res)
+        res = recsys_v2.recommend2(search)
+        res = recsys_v2.getJsonData(res)
         return jsonify(res)
     except:    
         return jsonify(empty)
