@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[8]:
+# In[1]:
 
 
 import os
@@ -22,7 +22,7 @@ print('Dependencies Imported')
 # print(test.test())
 
 
-# In[ ]:
+# In[2]:
 
 
 # Coursera Course Recommendation System+WebApp (CountVectorization)
@@ -31,7 +31,7 @@ print('Dependencies Imported')
 
 # ## Text cleaning
 
-# In[10]:
+# In[3]:
 
 
 import nltk
@@ -50,7 +50,7 @@ import matplotlib.pyplot as plt
 from nltk.corpus import stopwords
 
 
-# In[122]:
+# In[4]:
 
 
 #nltk.download('stopwords') #install stopwords
@@ -59,7 +59,7 @@ from nltk.corpus import stopwords
 #print(stopwords.words('english'))
 
 
-# In[13]:
+# In[5]:
 
 
 stop_words = set(stopwords.words('english'))
@@ -72,7 +72,7 @@ def text_process(text):
     return final
 
 
-# In[33]:
+# In[6]:
 
 
 def getCourses():
@@ -97,7 +97,7 @@ def getCourses():
     return data
 
 
-# In[34]:
+# In[7]:
 
 
 # df = getCourses()
@@ -105,7 +105,7 @@ def getCourses():
 
 # ## word cloud
 
-# In[35]:
+# In[8]:
 
 
 # #All Course Level
@@ -129,7 +129,7 @@ def getCourses():
 # plt.show()
 
 
-# In[36]:
+# In[9]:
 
 
 # #Beginner Level
@@ -153,7 +153,7 @@ def getCourses():
 # plt.show()
 
 
-# In[37]:
+# In[10]:
 
 
 # # Intermediate Level
@@ -178,7 +178,7 @@ def getCourses():
 # plt.show()
 
 
-# In[38]:
+# In[11]:
 
 
 # #Advanced Level
@@ -202,7 +202,7 @@ def getCourses():
 # plt.show()
 
 
-# In[39]:
+# In[12]:
 
 
 def getJsonData(df):
@@ -212,7 +212,7 @@ def getJsonData(df):
 #     return json.dumps(parsed, indent=4)  
 
 
-# In[40]:
+# In[13]:
 
 
 #defining the stemming function
@@ -228,7 +228,7 @@ def getJsonData(df):
 #     return " ".join(y)
 
 
-# In[41]:
+# In[18]:
 
 
 # Recommendation Function
@@ -286,7 +286,7 @@ def recommend1(course):
     course_index = new_df[new_df['course_name'] == course].index[0]
 
     distances = similarity[course_index]
-    course_list = sorted(list(enumerate(distances)),reverse=True, key=lambda x:x[1])[1:7]
+    course_list = sorted(list(enumerate(distances)),reverse=True, key=lambda x:x[1])[1:11]
     
     course_names = []
     for i in course_list:
@@ -303,20 +303,20 @@ def recommend1(course):
     return data_return
 
 
-# In[42]:
+# In[19]:
 
 
-recommend1('Write A Feature Length Screenplay For Film Or Television')
+# recommend1('Write A Feature Length Screenplay For Film Or Television')
 
 
-# In[43]:
+# In[20]:
 
 
 # Coursera Course Recommendation Engine (TfidfVectorizer)
 # https://www.kaggle.com/code/brijlaldhankour/coursera-course-recommendation-engine
 
 
-# In[44]:
+# In[21]:
 
 
 # Creating autocpt arguments 
@@ -325,7 +325,7 @@ def func(pct, allvalues):
     return "{:.1f}%\n({:d} g)".format(pct, absolute) 
 
 
-# In[45]:
+# In[22]:
 
 
 def plotGraph1():
@@ -379,7 +379,7 @@ def plotGraph1():
     #=========================================================================#
 
 
-# In[46]:
+# In[23]:
 
 
 def plotGraph2():
@@ -407,7 +407,7 @@ def plotGraph2():
     #=========================================================================#
 
 
-# In[47]:
+# In[24]:
 
 
 # Recommendation Function
@@ -467,7 +467,7 @@ def recommend2(course_title):
      
 
 
-# In[51]:
+# In[25]:
 
 
 # Test functions
@@ -490,13 +490,13 @@ def recommend2(course_title):
 # getJsonData(recommend2('Finance for Managers'))
 
 
-# In[48]:
+# In[28]:
 
 
-#recommend1('Finance for Managers') 
+# recommend1('Finance for Managers') 
 
 
-# In[50]:
+# In[29]:
 
 
 # recommend2('Finance for Managers') 

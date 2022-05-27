@@ -161,7 +161,7 @@ export default function EcommerceShop() {
     if (!item) { return setRecommendCourses([]); }
     let search = item['Course Name'] ? item['Course Name'] : item['inputValue'];
     try {
-      const response = await axios.get(`http://localhost:5000/api/recommend2?search=${search}`);
+      const response = await axios.get(`http://localhost:5000/api/${mode? 'recommend1': 'recommend2'}?search=${search}`);
       console.log(item, response)
       let resCourses = response.data.map((product, index) => {
         const setIndex = index + 1;
@@ -205,15 +205,16 @@ export default function EcommerceShop() {
           Courses
         </Typography>
         <FormControl fullWidth>
-          {mode ?
-            <TextField style={{ marginBottom: '40px' }}
-              type="text"
-              label="Search ..."
-              value={searchText}
-              onChange={(event) => {
-                setSearchText(event.target.value);
-              }}
-            /> :
+          {
+          // mode ?
+          //   <TextField style={{ marginBottom: '40px' }}
+          //     type="text"
+          //     label="Search ..."
+          //     value={searchText}
+          //     onChange={(event) => {
+          //       setSearchText(event.target.value);
+          //     }}
+          //   /> :
             <Autocomplete style={{ marginBottom: '40px' }}
               value={value}
               onChange={(event, newValue) => {
